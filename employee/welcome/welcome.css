@@ -1,0 +1,56 @@
+
+:root{color-scheme:light;--navy:#1e2d49;--blue:#2787c8;--blue-action:#41b0e7;--bg:#f2f1f6;--ink:#1d2534;--secondary:#757e8c;--hairline:#e3e4ea}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100svh;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+button,a{ -webkit-tap-highlight-color:transparent }
+button{font:inherit;cursor:pointer}
+a{color:inherit}
+.page{max-width:1160px;margin:0 auto;padding:38px 28px 22px}
+.header{display:flex;gap:35px;justify-content:space-between;align-items:flex-start;padding:6px 0 23px;border-bottom:1px solid #dcdee6}
+.hero-title-group{min-width:0;flex:1}
+.employee{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;font-size:24px;line-height:1.10;font-weight:650;letter-spacing:-.035em;color:#1d293e}
+.role{margin:4px 0 4px;color:#7b8390;font-size:16px;line-height:1.16}
+h1{font-size:clamp(31px,4.4vw,48px);letter-spacing:-.055em;font-weight:760;line-height:1.08;color:var(--blue);margin:0}
+.brand{width:235px;height:auto;max-height:115px;object-fit:contain;flex:0 0 auto;margin:1px -8px 0 0}
+.welcome-intro{max-width:830px;margin:28px auto 9px;text-align:center;color:#697486;font-size:15px;line-height:1.65}
+.card-panel{max-width:600px;margin:27px auto 0;text-align:center}
+#card-host{width:100%;display:block;min-height:0}
+.actions{max-width:550px;margin:39px auto 0}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.action-tile{border:1px solid #dbe0e9;background:rgba(255,255,255,.94);border-radius:17px;min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 16px;color:var(--ink);text-decoration:none;text-align:left;width:100%;box-shadow:0 5px 14px rgba(35,48,74,.025);transition:transform .16s,border-color .16s,background .16s}
+.action-tile:hover{border-color:#b8c6d6;background:#fff;transform:translateY(-1px)}
+.tile-copy{display:block;min-width:0;flex:1}
+.tile-title{display:block;font-size:15px;font-weight:680;letter-spacing:-.025em;line-height:1.2}
+.tile-sub{display:block;margin-top:4px;color:#828c9d;font-size:12px;line-height:1.3;white-space:normal;overflow-wrap:anywhere}
+.tile-icon{flex:0 0 27px;display:grid;place-items:center;color:#24334a}
+.tile-icon .icon{height:23px;width:23px;stroke-width:1.8}
+.open-card{display:flex;align-items:center;justify-content:center;gap:10px;text-align:center;width:100%;min-height:55px;padding:12px 18px;margin-top:10px;background:var(--blue-action);border:1px solid transparent;border-radius:16px;text-decoration:none;color:#122538;font-size:16px;font-weight:700;transition:background .16s}
+.open-card:hover{background:#2ea4df}
+.open-card .icon{width:21px;height:21px}
+.faq-panel{background:#fff;border:1px solid #e1e4ec;border-radius:22px;max-width:550px;margin:30px auto 0;padding:5px 19px 0;box-shadow:0 8px 30px rgba(35,42,61,.035)}
+.faq-item+ .faq-item{border-top:1px solid #e8ebf0}
+.faq-item summary{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:70px;padding:14px 1px;cursor:pointer;font-weight:680;letter-spacing:-.02em;font-size:16px;line-height:1.3;list-style:none}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::marker{content:''}
+.faq-item .chevron{width:20px;height:20px;flex:0 0 20px;color:#758192;transition:transform .22s}
+.faq-item[open] .chevron{transform:rotate(180deg);color:var(--blue)}
+.answer{padding:1px 12px 21px 1px;color:#626d7b;line-height:1.64;font-size:14px}
+.answer p{margin:0 0 13px}
+.answer ul,.answer ol{padding-left:23px;margin:0 0 13px}
+.answer li{margin:0 0 5px}
+.answer strong{font-weight:700;color:#263344}
+.answer .tip{margin:13px 0 0;padding:12px 15px;border-radius:12px;background:#f5f8fc;color:#617084}
+.answer .tip strong{color:#2787c8}
+.answer .faq-link{display:inline-flex;gap:9px;align-items:center;padding:12px 16px;margin:6px 8px 2px 0;border-radius:11px;text-decoration:none;font-size:14px;font-weight:650;background:#e9f4fd;color:#236fa8}
+.answer .faq-link.green{background:#e8f5ec;color:#14814b}
+.answer .faq-link .icon{width:17px;height:17px}
+.footer{text-align:center;color:#929aaa;padding:30px 10px 10px;font-size:12px}
+.footer strong{color:#5f6c7e;font-weight:620}
+.icon{display:inline-block;width:20px;height:20px;flex-shrink:0}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #2583c7;outline-offset:3px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+@media(max-width:760px){.page{padding:24px 17px 15px}.header{gap:18px;padding-bottom:19px}.employee{font-size:21px}.role{font-size:14px}.brand{width:170px;max-height:76px}.welcome-intro{margin-top:19px;font-size:14px}.card-panel{margin-top:20px}.faq-panel{padding:2px 18px}.faq-item summary{font-size:15px;min-height:68px}.answer{font-size:14px}}
+@media(max-width:480px){.page{padding:18px 12px 8px}.header{gap:8px;padding:5px 0 15px}.employee{font-size:18px}.role{font-size:12px;margin:3px 0 3px}.header h1{font-size:clamp(24px,6.8vw,31px)}.brand{width:124px;margin:0 -8px 0 0;max-height:62px}.welcome-intro{font-size:13px;margin:18px 9px 7px;text-align:left}.card-panel{margin-top:14px}#card-host{min-height:0}.tiles{grid-template-columns:1fr;gap:9px}.action-tile{min-height:74px;padding:12px 15px;border-radius:16px}.tile-title{font-size:15px}.tile-sub{font-size:12px}.open-card{min-height:52px;font-size:16px;border-radius:14px;margin-top:10px}.faq-panel{margin:28px auto 0;padding:0 16px;border-radius:18px}.faq-item summary{font-size:15px;min-height:66px;padding:15px 1px}.answer{padding-right:4px;font-size:13px}.footer{font-size:11px}}
+@media(max-width:480px){.actions{margin-top:32px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;scroll-behavior:auto!important}}
