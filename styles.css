@@ -1,0 +1,263 @@
+:root{color-scheme:light;--navy:#1e2d49;--orange:#f28b13;--canvas:#f2f1f6;--muted:#888991}*{box-sizing:border-box}html,body{min-height:100%}body{min-height:100svh;margin:0;padding:max(env(safe-area-inset-top),24px) 20px max(env(safe-area-inset-bottom),22px);color:#202127;background:var(--canvas);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}.wallet-screen{width:min(100%,480px);min-height:calc(100svh - max(env(safe-area-inset-top),24px) - max(env(safe-area-inset-bottom),22px));margin:0 auto;display:flex;flex-direction:column}.wallet-content{display:flex;flex:1;flex-direction:column;align-items:center;justify-content:center;padding:8px 0 26px}.selector-wrap{width:min(100%,430px);display:flex;align-items:center;gap:9px;margin:0 0 20px;flex-wrap:wrap}.selector-wrap[hidden]{display:none}.selector-wrap label{font-size:12px;color:#777983;white-space:nowrap}.selector-wrap select{flex:1;min-width:150px;height:42px;padding:0 12px;border:1px solid rgba(30,45,73,.15);border-radius:12px;background:#fff;color:var(--navy);font:600 14px -apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;cursor:pointer}.selector-wrap>a{width:100%;text-align:right;color:#1675d1;font-size:12px;text-decoration:none}.card-scene{width:min(100%,430px);perspective:1500px;-webkit-perspective:1500px}.card{width:100%;aspect-ratio:1062/590;cursor:pointer;filter:drop-shadow(0 17px 24px rgba(18,20,29,.19)) drop-shadow(0 3px 5px rgba(18,20,29,.12));-webkit-tap-highlight-color:transparent}.card:focus-visible{outline:3px solid #1285ff;outline-offset:6px;border-radius:20px}.card-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;transition:transform 680ms cubic-bezier(.2,.72,.24,1);border-radius:19px}.card.flipped .card-inner{transform:rotateY(180deg)}.face{position:absolute;inset:0;overflow:hidden;border:1px solid rgba(0,0,0,.08);border-radius:19px;background:#fff;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform-style:flat;-webkit-transform-style:flat}.front{transform:rotateY(0deg)}.back{transform:rotateY(180deg)}.face>img{display:block;width:100%;height:100%;object-fit:fill}/* Reference-card typography and positions.
+   The printed reference uses a generous optical left margin (about 14% of
+   card width); 12px is the *minimum* safety inset for any rendered text.
+   All type dimensions scale with card width. No text is allowed to bleed
+   across the card edge or across the adjacent content zones. */
+.card-scene{container-type:inline-size}
+.back{
+  --safe-inset:12px;
+  --left-start:12.2%;
+  --top-start:23.5%;
+  --contacts-bottom:13.7%;
+  --name-right:37.2%;
+  color:var(--navy);
+}
+.left-column{
+  position:absolute;
+  left:max(var(--safe-inset),var(--left-start));
+  right:var(--name-right);
+  top:var(--top-start);
+  bottom:var(--contacts-bottom);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:clamp(5px,1.65cqw,8px);
+  min-width:0;
+  min-height:0;
+  overflow:visible;
+}
+.identity{flex:0 1 auto;min-width:0;max-width:100%}
+.name{
+  margin:0;
+  color:var(--navy);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:5.38cqw;
+  font-weight:700;
+  line-height:1.035;
+  letter-spacing:-.032em;
+  overflow-wrap:break-word;
+  word-break:normal;
+}
+.job{
+  margin-top:.05cqw;
+  color:var(--navy);
+  font-size:3.14cqw;
+  font-weight:400;
+  line-height:1.16;
+  letter-spacing:.005em;
+  overflow-wrap:break-word;
+}
+.contacts{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:.52cqw;
+  flex:0 0 auto;
+  min-width:0;
+  max-width:100%;
+  color:var(--navy);
+}
+.contact{
+  display:flex;
+  align-items:flex-start;
+  gap:.65cqw;
+  min-width:0;
+  max-width:100%;
+  font-size:2.63cqw;
+  font-weight:400;
+  line-height:1.10;
+  letter-spacing:.005em;
+}
+.contact img{
+  display:block;
+  width:3.03cqw;
+  height:auto;
+  object-fit:contain;
+  flex:0 0 auto;
+  margin-top:.12em;
+}
+.contact a{
+  min-width:0;
+  max-width:100%;
+  color:inherit;
+  text-decoration:none;
+  overflow-wrap:anywhere;
+}
+.contact-copy{
+  min-width:0;
+  max-width:100%;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:.34em .55em;
+  line-height:1.08;
+}
+.contact-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:1.55em;
+  padding:.1em .52em;
+  border:.08em solid rgba(242,139,19,.9);
+  border-radius:999px;
+  color:#d97800;
+  background:rgba(255,255,255,.72);
+  font-size:.56em;
+  font-weight:600;
+  line-height:1;
+  letter-spacing:.015em;
+  white-space:nowrap;
+  vertical-align:middle;
+}
+.contact a:hover{text-decoration:underline}
+.qrblock{
+  position:absolute;
+  left:64.9%;
+  right:var(--safe-inset);
+  bottom:11.55%;
+  display:flex;
+  align-items:center;
+  gap:1.0cqw;
+  min-width:0;
+  padding-bottom:1.1cqw;
+  color:var(--navy);
+}
+.qrblock>a{
+  display:block;
+  width:6.3cqw;
+  flex:0 0 6.3cqw;
+  min-width:0;
+  line-height:0;
+}
+.qrblock img{display:block;width:100%;aspect-ratio:1;object-fit:contain}
+.blessing{
+  position:relative;
+  flex:1;
+  min-width:0;
+  color:var(--navy);
+  font-family:Georgia,"Times New Roman",serif;
+  font-style:italic;
+  align-self:flex-end;
+  line-height:1;
+  letter-spacing:-.03em;
+  white-space:nowrap;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+.blessing-top{
+  font-size:1.82cqw;
+  font-weight:600;
+  letter-spacing:-.018em;
+}
+.blessing-bottom{
+  margin-top:-.06cqw;
+  font-size:2.78cqw;
+  font-weight:700;
+  letter-spacing:-.036em;
+}
+.goldline{
+  position:absolute;
+  left:0;right:0;bottom:0;
+  height:1px;
+  background:#e99a24;
+}
+.flip-button{display:flex;flex-direction:column;align-items:center;gap:9px;margin:42px 0 0;padding:0;border:0;color:var(--muted);background:transparent;font:inherit;cursor:pointer}.flip-icon{display:grid;width:64px;height:64px;place-items:center;border:2px solid #1285ff;border-radius:50%;color:#1285ff;transition:transform 250ms ease,background 250ms ease}.flip-icon svg{width:39px;height:39px;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}.flip-button:hover .flip-icon{background:rgba(18,133,255,.08);transform:rotate(-12deg)}#flipLabel{font-size:19px;font-weight:400;letter-spacing:-.035em}/* Compact contact dock. The full-width save pill tracks exactly the
+   visible round action buttons (3 or 4 on the current employee list). */
+.action-panel{
+  --action-size:46px;
+  --action-gap:10px;
+  --dock-width:214px;
+  width:var(--dock-width);
+  max-width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  margin-top:16px;
+}
+.save-contact{
+  min-height:49px;
+  width:100%;
+  padding:6px 8px 6px 7px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:0;
+  border:1px solid rgba(30,45,73,.20);
+  border-radius:999px;
+  color:var(--navy);
+  background:rgba(255,255,255,.83);
+  font-size:14px;
+  font-weight:650;
+  line-height:1.2;
+  text-decoration:none;
+  white-space:nowrap;
+  transition:background .18s ease,border-color .18s ease,transform .18s ease;
+}
+.save-contact:hover{background:#fff;border-color:rgba(30,45,73,.34)}
+.save-contact:focus-visible,.quick-actions a:focus-visible{outline:2px solid #1285ff;outline-offset:3px}
+.contact-avatar{
+  display:grid;
+  place-items:center;
+  width:32px;
+  height:32px;
+  flex:0 0 32px;
+  border-radius:50%;
+  background:var(--navy);
+  color:white;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.025em;
+  line-height:1;
+  user-select:none;
+}
+.contact-avatar{overflow:hidden}
+.contact-avatar-image{
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+  object-position:center;
+  flex:0 0 auto;
+}
+.save-text{margin-left:auto;max-width:calc(100% - 42px);padding-right:10px;white-space:nowrap;text-align:right;overflow:hidden;text-overflow:ellipsis}
+.quick-actions{
+  width:100%;
+  display:flex;
+  flex-wrap:nowrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:var(--action-gap);
+  margin-top:9px;
+}
+.quick-actions a{
+  display:grid;
+  place-items:center;
+  flex:0 0 var(--action-size);
+  width:var(--action-size);
+  height:var(--action-size);
+  padding:0;
+  border:1px solid #d8d9df;
+  border-radius:50%;
+  background:rgba(255,255,255,.87);
+  color:#35425b;
+  text-decoration:none;
+  transition:background .18s ease,border-color .18s ease,transform .18s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.quick-actions a:hover{background:#fff;border-color:#b9c2d4;transform:translateY(-1px)}
+.quick-actions a svg{
+  display:block;
+  width:21px;
+  height:21px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.85;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.quick-actions a[hidden]{display:none}
+.interaction-hint{margin:14px 0 0;color:#a0a0a7;font-size:12px;text-align:center}footer{padding-top:14px;color:#9b9ba3;font-size:10px;letter-spacing:.015em;text-align:center}footer span{padding:0 4px;color:var(--orange)}@media(max-width:380px){body{padding-right:14px;padding-left:14px}.flip-button{margin-top:34px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important}}
+
+.unavailable{text-align:center;max-width:330px;margin:auto;padding:24px;color:#45516a}.unavailable h2{font-size:20px}.unavailable p{font-size:14px;line-height:1.5}
