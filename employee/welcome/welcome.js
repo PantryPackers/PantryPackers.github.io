@@ -89,7 +89,7 @@ function render(person){
     row.append(icon,wrap);contacts.append(row);
   };
   if(person.public_email)add(person.public_email,'mailto:'+person.public_email);
-  (Array.isArray(person.phones)?person.phones:[]).forEach(phone=>{if(!phone||typeof phone.number!=='string')return;const p=dial(phone.number);add(phone.number,phone.type==='whatsapp'?'https://wa.me/'+p.replace(/\\D/g,''):'tel:'+p,phone.label)});
+  (Array.isArray(person.phones)?person.phones:[]).forEach(phone=>{if(!phone||typeof phone.number!=='string')return;const p=dial(phone.number);add(phone.number,phone.type==='whatsapp'?'https://wa.me/'+p.replace(/\D/g,''):'tel:'+p,phone.label)});
   const website=person.website||'https://pantrypackers.org/';
   const original=slug==='aviva-wallick'?'https://give.pantrypackers.org/':'https://pantrypackers.org/';
   q('#qr').src=website===original?'../../../assets/qr-'+slug+'.png':'https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=0&data='+encodeURIComponent(website);
